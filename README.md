@@ -1,35 +1,49 @@
-# BIST Trade Bot
+# BIST 100 Signal Dashboard
 
-BIST 100 hisselerini RSI, Bollinger, MACD, Swing, EMA Cross, Stoch RSI, Volume Spike ve VWAP kombinasyonuyla analiz eden gerçek zamanlı sinyal panosu.
+A real-time BIST 100 trading signal dashboard that combines RSI, Bollinger Bands, MACD, swing signals, EMA cross, Stoch RSI, volume spikes, and VWAP into a single technical analysis view.
 
-## Özellikler
+## Features
 
-- 8 teknik indikatörden bileşik sinyal skoru (-8 … +8)
-- Al / Sat fiyat seviyeleri (Bollinger Band desteği/direnci)
-- Anlık işlem akışı paneli (sağ sidebar)
-- TradingView Lightweight Charts (mum + RSI + Stoch RSI + MACD)
-- Ant Design v5 dark + compact UI
+- Composite signal score from 8 technical indicators
+- Buy and sell price levels based on Bollinger Band support and resistance
+- Live trade flow panel in the right sidebar
+- TradingView Lightweight Charts with candlestick, RSI, Stoch RSI, and MACD views
+- Dark and compact Ant Design v5 interface
 
-## Kurulum
+## Setup
 
 ### Backend
+
 ```bash
 cd backend
 pip install -r ../requirements.txt
 python app.py
 ```
 
-### Frontend (dev)
+### Frontend Development
+
 ```bash
 cd frontend
 npm install
-npm run dev        # http://localhost:5173
+npm run dev
 ```
 
-### Frontend (production build)
+The frontend development server usually opens at `http://localhost:5173`.
+
+### Production Build
+
 ```bash
 cd frontend
-npm run build      # dist/ → Flask tarafından serve edilir
+npm run build
 ```
 
-Uygulama: **http://localhost:5000**
+The production build is served by the Flask backend.
+
+Application URL: `http://localhost:5000`
+
+## Tech Stack
+
+- Backend: Python, Flask
+- Frontend: JavaScript, React, Ant Design
+- Charts: TradingView Lightweight Charts
+- Analysis: RSI, MACD, Bollinger Bands, EMA Cross, Stoch RSI, VWAP, volume signals
