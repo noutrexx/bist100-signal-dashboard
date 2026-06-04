@@ -46,9 +46,9 @@ function CandleChart({ candles }) {
       .setData(candles.filter(c => c.bb_lower  != null).map(c => ({ time: c.time, value: c.bb_lower })))
 
     // EMA 9/21
-    chart.addLineSeries({ color: '#f59e0b', lineWidth: 1.5, title: 'EMA9', lastValueVisible: false, priceLineVisible: false })
+    chart.addLineSeries({ color: '#f59e0b', lineWidth: 2, title: 'EMA9', lastValueVisible: false, priceLineVisible: false })
       .setData(candles.filter(c => c.ema_fast != null).map(c => ({ time: c.time, value: c.ema_fast })))
-    chart.addLineSeries({ color: '#6366f1', lineWidth: 1.5, title: 'EMA21', lastValueVisible: false, priceLineVisible: false })
+    chart.addLineSeries({ color: '#6366f1', lineWidth: 2, title: 'EMA21', lastValueVisible: false, priceLineVisible: false })
       .setData(candles.filter(c => c.ema_slow != null).map(c => ({ time: c.time, value: c.ema_slow })))
 
     // VWAP
@@ -79,7 +79,7 @@ function RsiStochChart({ candles }) {
     const opts = { ...CHART_OPTS, height: 90, timeScale: { ...CHART_OPTS.timeScale, visible: false } }
     const chart = createChart(rsiRef.current, opts)
     const rsiData = candles.filter(c => c.rsi != null).map(c => ({ time: c.time, value: c.rsi }))
-    chart.addLineSeries({ color: '#f59e0b', lineWidth: 1.5, title: 'RSI', lastValueVisible: true }).setData(rsiData)
+    chart.addLineSeries({ color: '#f59e0b', lineWidth: 2, title: 'RSI', lastValueVisible: true }).setData(rsiData)
     if (rsiData.length) {
       const [f, l] = [rsiData[0].time, rsiData[rsiData.length-1].time]
       chart.addLineSeries({ color: 'rgba(239,68,68,0.3)', lineWidth: 1, lineStyle: 2, lastValueVisible: false, priceLineVisible: false }).setData([{ time: f, value: 70 }, { time: l, value: 70 }])
@@ -95,7 +95,7 @@ function RsiStochChart({ candles }) {
     const opts = { ...CHART_OPTS, height: 90, timeScale: { ...CHART_OPTS.timeScale, visible: false } }
     const chart = createChart(srsiRef.current, opts)
     const srsiData = candles.filter(c => c.stoch_rsi != null).map(c => ({ time: c.time, value: c.stoch_rsi * 100 }))
-    chart.addLineSeries({ color: '#a78bfa', lineWidth: 1.5, title: 'StochRSI', lastValueVisible: true }).setData(srsiData)
+    chart.addLineSeries({ color: '#a78bfa', lineWidth: 2, title: 'StochRSI', lastValueVisible: true }).setData(srsiData)
     if (srsiData.length) {
       const [f, l] = [srsiData[0].time, srsiData[srsiData.length-1].time]
       chart.addLineSeries({ color: 'rgba(239,68,68,0.3)', lineWidth: 1, lineStyle: 2, lastValueVisible: false, priceLineVisible: false }).setData([{ time: f, value: 80 }, { time: l, value: 80 }])
@@ -131,7 +131,7 @@ function MacdChart({ candles }) {
         time: c.time, value: c.macd_hist,
         color: c.macd_hist >= 0 ? 'rgba(34,197,94,0.6)' : 'rgba(239,68,68,0.6)',
       })))
-    chart.addLineSeries({ color: '#3b82f6', lineWidth: 1.5, title: 'MACD', lastValueVisible: true })
+    chart.addLineSeries({ color: '#3b82f6', lineWidth: 2, title: 'MACD', lastValueVisible: true })
       .setData(candles.filter(c => c.macd != null).map(c => ({ time: c.time, value: c.macd })))
     chart.addLineSeries({ color: '#f59e0b', lineWidth: 1, title: 'Sig', lastValueVisible: false })
       .setData(candles.filter(c => c.macd_signal != null).map(c => ({ time: c.time, value: c.macd_signal })))
@@ -282,7 +282,7 @@ export default function StockModal({ open, loading, data, onClose }) {
       onCancel={onClose}
       footer={null}
       width={820}
-      destroyOnClose
+      destroyOnHidden
       styles={{
         content: { background: '#0a0d14', border: '1px solid #1e2738', borderRadius: 8, padding: 0 },
         header:  { background: '#0a0d14', borderBottom: '1px solid #1e2738', padding: '10px 16px 8px', margin: 0 },

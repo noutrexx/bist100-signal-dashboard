@@ -9,6 +9,7 @@ A real-time BIST 100 trading signal dashboard that combines RSI, Bollinger Bands
 - Live trade flow panel in the right sidebar
 - TradingView Lightweight Charts with candlestick, RSI, Stoch RSI, and MACD views
 - Dark and compact Ant Design v5 interface
+- TypeScript-based React frontend with Vite
 
 ## Setup
 
@@ -30,6 +31,13 @@ npm run dev
 
 The frontend development server usually opens at `http://localhost:5173`.
 
+### Type Check
+
+```bash
+cd frontend
+npm run typecheck
+```
+
 ### Production Build
 
 ```bash
@@ -37,13 +45,13 @@ cd frontend
 npm run build
 ```
 
-The production build is served by the Flask backend.
+The production build runs TypeScript validation first, then creates the Vite build. The generated frontend can be served by the Flask backend.
 
 Application URL: `http://localhost:5000`
 
 ## Tech Stack
 
 - Backend: Python, Flask
-- Frontend: JavaScript, React, Ant Design
+- Frontend: TypeScript, React, Vite, Ant Design
 - Charts: TradingView Lightweight Charts
 - Analysis: RSI, MACD, Bollinger Bands, EMA Cross, Stoch RSI, VWAP, volume signals

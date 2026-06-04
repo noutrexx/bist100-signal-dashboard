@@ -393,8 +393,8 @@ export default function PaperTrader() {
                   transition: 'color 0.2s',
                   outline: 'none',
                 }}
-                onMouseOver={(e) => e.target.style.color = '#f8fafc'}
-                onMouseOut={(e) => e.target.style.color = '#64748b'}
+                onMouseOver={(e) => e.currentTarget.style.color = '#f8fafc'}
+                onMouseOut={(e) => e.currentTarget.style.color = '#64748b'}
                 title="Sıfırla (Bakiye Yükle)"
               >
                 ↻

@@ -8,6 +8,7 @@ import LiveFeed from './components/LiveFeed'
 import NewsPanel from './components/NewsPanel'
 import InstitutionalFlow from './components/InstitutionalFlow'
 import PaperTrader from './components/PaperTrader'
+import type { Signal, StockDetail } from './types'
 
 const { Header, Content } = Layout
 const { Text } = Typography
@@ -15,12 +16,12 @@ const { Text } = Typography
 const API = ''
 
 export default function App() {
-  const [signals, setSignals] = useState([])
+  const [signals, setSignals] = useState<Signal[]>([])
   const [loading, setLoading] = useState(false)
-  const [lastUpdate, setLastUpdate] = useState(null)
-  const [selectedSymbol, setSelectedSymbol] = useState(null)
+  const [lastUpdate, setLastUpdate] = useState<Date | null>(null)
+  const [, setSelectedSymbol] = useState<string | null>(null)
   const [modalOpen, setModalOpen] = useState(false)
-  const [modalData, setModalData] = useState(null)
+  const [modalData, setModalData] = useState<StockDetail | null>(null)
   const [modalLoading, setModalLoading] = useState(false)
 
   const loadSignals = useCallback(async () => {
@@ -37,7 +38,7 @@ export default function App() {
     }
   }, [])
 
-  const openStockDetail = async (symbol) => {
+  const openStockDetail = async (symbol: string) => {
     setSelectedSymbol(symbol)
     setModalOpen(true)
     setModalLoading(true)

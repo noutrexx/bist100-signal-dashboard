@@ -97,7 +97,7 @@ export default function SignalsTable({ signals, loading, onRowClick }) {
     return d
   }, [signals, activeFilter, search])
 
-  const columns = [
+  const columns: any[] = [
     {
       title: 'Sembol',
       dataIndex: 'symbol',
