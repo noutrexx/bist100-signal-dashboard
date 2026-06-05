@@ -1,2 +1,2 @@
-﻿# Keep tiny generated/support languages out of GitHub language stats.
+# Keep tiny generated/support languages out of GitHub language stats.
 *.html linguist-detectable=false
